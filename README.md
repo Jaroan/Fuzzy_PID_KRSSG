@@ -1,4 +1,4 @@
-#Fuzzy-PID
+Fuzzy-PID
 
 STM Code implementing Fuzzy Logic for PID to drive motor.
 Involves UART Communication between STM32F407VG and FPGA.
