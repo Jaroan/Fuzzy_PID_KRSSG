@@ -33,6 +33,14 @@ void init(){
 		for(j=0;j<3;j++) Fuzzy_Matrix[i][j]=0;
 	}
 }
+
+void swap(int* a, int* b)  
+{  
+    int t = *a;  
+    *a = *b;  
+    *b = t;  
+}  
+
 int max(int x,int y){
 	return x>y?x:y;
 }
