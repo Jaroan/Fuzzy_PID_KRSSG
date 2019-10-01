@@ -195,7 +195,8 @@ int main(void)
 
     while(1)
     {
-
+	printf("Sending PWM........\n"); 
     	//Send PWM;
     }
+    return 0;
 }
