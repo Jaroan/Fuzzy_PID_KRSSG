@@ -1,18 +1,18 @@
-Fuzzy-PID
+# Fuzzy-PID
 
 STM Code implementing Fuzzy Logic for PID to drive motor.
 Involves UART Communication between STM32F407VG and FPGA.
 
-Workflow:
+## **Workflow:**
 Receives the number of Ticks as input from FPGA. 
 Computes the appropriate PWM Value using Fuzzy Logic in STM.
 Transmits the computed PWM to FPGA which in turn drives the Motor.
 
-Abstract
+## **Abstract**
 
 The traditional Mamdani approach of Fuzzy Logic is computationally expensive and highly inefficient when it comes to controlling velocity and direction of motion of bots which need to have fast response as well as acquire accurate target states with minimal error. Added to this, it is necessary to take into consideration the means of communication, which in our case is via a wireless network. In this paper we propose a modified version of the Mamdani approach and then proceed to integrate it with a PID control function in an attempt to achieve better results.
 
-Introduction:
+## **Introduction:**
 	
 DC motors in general do not have a linear rpm-pwm relationship. The reasons for this include friction in the axle and back emf as well as external influences like resistive torque from the load or fluctuating voltages. But more often than not, we would like the motor to run at the same speed or to provide the same torque irrespective of the conditions it is run in or the load it is required to carry. It is imperative that given a target state, the motor may require different PWM values to reach that state subject to different conditions. Therefore, an automated non-linear correction function is essential to provide optimal outputs in any arbitrary condition.
 
@@ -40,19 +40,19 @@ These new values are fed into a PD function which computes the required PWM.
 
 
 
-Fuzzification:
+**Fuzzification:**
 
 PE, ZE, NE, PDE, NDE and ZDE were initialized to zero.
 Then the values were updated according to the input membership functions shown above. Here we used 10 as an indication of full membership in order to reduce computational complexity.  
 
-Creating the Fuzzy Matrix ( Rule Base ):
+**Creating the Fuzzy Matrix ( Rule Base ):**
 
 3x3 matrix used:
 For simplification, a 3*3 Rule Base Matrix was implemented for each of the Kp Controller and Kd Controller.
 
 
 
-Defuzzification:
+**Defuzzification:**
 
 The Defuzzification includes setting the following parameters:
  
@@ -68,7 +68,7 @@ Kp_Small_Val = 1, Kp_Medium_Val = 2, Kp_Large_Val = 3,
 Kd_Small_Val = 3, Kd_Medium_Val = 6, Kd_Large_Val = 9;
 All other variables are initialized to zero.
 
-Functions Used:
+## **Functions Used:**
 
 void Initialise_LED()
 This is the basic function for the STM’s LED initialization
