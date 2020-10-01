@@ -104,6 +104,13 @@ int Compute_PWM(){
 	return out;
 }
 
+void swap(int x,int y)
+{
+	int temp = x;
+	x = y;
+	y = temp;
+}
+
 //int PWM_Fuzzy = 200;
 
 void Initialise_LED()
